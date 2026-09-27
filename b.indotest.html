@@ -1,0 +1,1669 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>TES PEMAHAMAN B.INDO By RIPAxGPT</title>
+
+<style>
+
+/* =========================
+   RESET
+========================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    min-height: 100vh;
+
+    background:
+        linear-gradient(
+            135deg,
+            #e8f8ff,
+            #a8e4ff,
+            #61c9f2
+        );
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    color: #16465c;
+}
+
+
+/* =========================
+   CONTAINER
+========================= */
+
+.container {
+    width: 92%;
+    max-width: 850px;
+
+    min-height: 540px;
+
+    background: rgba(255,255,255,0.94);
+
+    border-radius: 30px;
+
+    padding: 35px;
+
+    box-shadow:
+        0 20px 50px rgba(0,100,150,0.18);
+}
+
+
+/* =========================
+   PAGE SYSTEM
+========================= */
+
+.page {
+    display: none;
+}
+
+.page.active {
+    display: block;
+}
+
+
+/* =========================
+   LOBBY
+========================= */
+
+.lobby {
+    min-height: 470px;
+
+    display: flex;
+    flex-direction: column;
+
+    justify-content: center;
+    align-items: center;
+
+    text-align: center;
+}
+
+
+/* LOGO */
+
+.logo {
+    width: 105px;
+    height: 105px;
+
+    border-radius: 30px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #6bd1f5,
+            #269fd0
+        );
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    font-size: 50px;
+
+    margin-bottom: 25px;
+
+    box-shadow:
+        0 12px 25px rgba(30,150,200,0.25);
+}
+
+
+/* TITLE */
+
+.title {
+    font-size: 42px;
+
+    color: #1689bd;
+
+    margin-bottom: 10px;
+}
+
+.subtitle {
+    font-size: 17px;
+
+    color: #63808d;
+
+    margin-bottom: 30px;
+}
+
+
+/* INFO */
+
+.info-container {
+    display: flex;
+
+    gap: 15px;
+
+    justify-content: center;
+
+    flex-wrap: wrap;
+
+    margin-bottom: 35px;
+}
+
+.info-box {
+    background: #e5f7ff;
+
+    border: 1px solid #c3eafa;
+
+    padding: 14px 20px;
+
+    border-radius: 15px;
+
+    color: #247da4;
+
+    font-weight: bold;
+
+    min-width: 120px;
+}
+
+
+/* START BUTTON */
+
+.start-button {
+
+    padding: 16px 45px;
+
+    border: none;
+
+    border-radius: 16px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #35b8ea,
+            #178fc4
+        );
+
+    color: white;
+
+    font-size: 17px;
+
+    font-weight: bold;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 10px 20px rgba(25,150,205,0.25);
+
+    transition: 0.2s;
+}
+
+.start-button:hover {
+
+    transform: translateY(-3px);
+
+}
+
+.start-button:active {
+
+    transform: scale(0.97);
+
+}
+
+
+/* MOBILE */
+
+@media (max-width: 600px) {
+
+    .container {
+        width: 94%;
+        padding: 22px;
+    }
+
+    .title {
+        font-size: 30px;
+    }
+
+    .subtitle {
+        font-size: 15px;
+    }
+
+    .logo {
+        width: 85px;
+        height: 85px;
+        font-size: 40px;
+    }
+
+    .info-box {
+        min-width: 100px;
+        padding: 12px 15px;
+        font-size: 14px;
+    }
+
+    .start-button {
+        width: 100%;
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<div class="container">
+
+
+<!-- =========================
+     PAGE 1 : LOBBY
+========================== -->
+
+<section
+    id="lobbyPage"
+    class="page active"
+>
+
+    <div class="lobby">
+
+        <div class="logo">
+            📚
+        </div>
+
+        <h1 class="title">
+            Bahasa Indonesia Quiz
+        </h1>
+
+        <p class="subtitle">
+            Anekdot • LHO • Teks Deskripsi
+        </p>
+
+        <div class="info-container">
+
+            <div class="info-box">
+                35 Soal
+            </div>
+
+            <div class="info-box">
+                Pilihan Ganda
+            </div>
+
+            <div class="info-box">
+                PSTS
+            </div>
+
+        </div>
+
+        <button
+            class="start-button"
+            onclick="startQuiz()"
+        >
+            MULAI QUIZ →
+        </button>
+    </div>
+
+</section>
+<!-- =========================
+     PAGE 2 : QUIZ
+========================== -->
+
+<style>
+
+/* =========================
+   QUIZ PAGE
+========================= */
+
+.quiz-page {
+    min-height: 470px;
+}
+
+
+/* TOP */
+
+.quiz-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    margin-bottom: 15px;
+}
+
+.question-number {
+    color: #1689bd;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.score-box {
+    background: #e5f7ff;
+
+    padding: 9px 15px;
+
+    border-radius: 12px;
+
+    color: #247da4;
+    font-weight: bold;
+}
+
+
+/* PROGRESS */
+
+.progress-background {
+    width: 100%;
+    height: 10px;
+
+    background: #dceff6;
+
+    border-radius: 20px;
+
+    overflow: hidden;
+
+    margin-bottom: 30px;
+}
+
+.progress-bar {
+    width: 0%;
+    height: 100%;
+
+    background: linear-gradient(
+        90deg,
+        #63cdf2,
+        #168fc5
+    );
+
+    border-radius: 20px;
+
+    transition: 0.3s;
+}
+
+
+/* QUESTION */
+
+.question-text {
+    font-size: 23px;
+    line-height: 1.5;
+
+    font-weight: bold;
+
+    color: #16465c;
+
+    margin-bottom: 25px;
+}
+
+
+/* ANSWERS */
+
+.answers {
+    display: grid;
+    gap: 13px;
+}
+
+.answer-button {
+    width: 100%;
+
+    padding: 16px;
+
+    border-radius: 15px;
+
+    border: 2px solid #c6e9f6;
+
+    background: #f4fcff;
+
+    color: #28596d;
+
+    font-size: 16px;
+
+    text-align: left;
+
+    cursor: pointer;
+
+    transition: 0.2s;
+}
+
+.answer-button:hover {
+    background: #e1f6ff;
+
+    border-color: #62c9ed;
+
+    transform: translateX(3px);
+}
+
+.answer-button.selected {
+    background: #bceaff;
+
+    border-color: #168fc5;
+
+    color: #0e668d;
+
+    font-weight: bold;
+}
+
+
+/* NEXT */
+
+.quiz-bottom {
+    display: flex;
+
+    justify-content: flex-end;
+
+    margin-top: 25px;
+}
+
+.next-button {
+    padding: 14px 28px;
+
+    border: none;
+
+    border-radius: 14px;
+
+    background: #239fd4;
+
+    color: white;
+
+    font-size: 16px;
+
+    font-weight: bold;
+
+    cursor: pointer;
+
+    transition: 0.2s;
+}
+
+.next-button:hover {
+    background: #168cbd;
+}
+
+.next-button:disabled {
+    opacity: 0.4;
+
+    cursor: not-allowed;
+
+    transform: none;
+}
+
+
+/* MOBILE */
+
+@media (max-width: 600px) {
+
+    .question-text {
+        font-size: 19px;
+    }
+
+    .answer-button {
+        font-size: 15px;
+        padding: 14px;
+    }
+
+    .next-button {
+        width: 100%;
+    }
+
+    .quiz-bottom {
+        justify-content: center;
+    }
+
+}
+
+</style>
+
+
+<!-- =========================
+     PAGE 2
+========================== -->
+
+<section
+    id="quizPage"
+    class="page"
+>
+
+    <div class="quiz-page">
+
+
+        <!-- TOP -->
+
+        <div class="quiz-top">
+
+            <div
+                class="question-number"
+                id="questionNumber"
+            >
+                Soal 1 / 35
+            </div>
+
+            <div class="score-box">
+
+                Benar:
+                <span id="currentScore">
+                    0
+                </span>
+
+            </div>
+
+        </div>
+
+
+        <!-- PROGRESS -->
+
+        <div class="progress-background">
+
+            <div
+                class="progress-bar"
+                id="progressBar"
+            ></div>
+
+        </div>
+
+
+        <!-- QUESTION -->
+
+        <div
+            class="question-text"
+            id="questionText"
+        >
+            Pertanyaan akan muncul di sini.
+        </div>
+
+
+        <!-- ANSWERS -->
+
+        <div
+            class="answers"
+            id="answers"
+        >
+
+            <button class="answer-button">
+                A. Jawaban pertama
+            </button>
+
+            <button class="answer-button">
+                B. Jawaban kedua
+            </button>
+
+            <button class="answer-button">
+                C. Jawaban ketiga
+            </button>
+
+            <button class="answer-button">
+                D. Jawaban keempat
+            </button>
+
+        </div>
+
+
+        <!-- NEXT BUTTON -->
+
+        <div class="quiz-bottom">
+
+            <button
+                class="next-button"
+                id="nextButton"
+                disabled
+            >
+                Berikutnya →
+            </button>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     35 SOAL
+========================== -->
+
+<script>
+
+const questions = [
+
+    {
+        question: "Apa yang dimaksud dengan teks anekdot?",
+        answers: [
+            "Teks yang hanya berisi fakta ilmiah",
+            "Cerita singkat yang lucu dan mengandung kritik atau sindiran",
+            "Teks yang menggambarkan suatu tempat",
+            "Teks yang berisi langkah-langkah"
+        ],
+        correct: 1
+    },
+
+    {
+        question: "Tujuan utama teks anekdot adalah ...",
+        answers: [
+            "Menghibur sekaligus menyampaikan kritik",
+            "Menjelaskan hasil penelitian",
+            "Menggambarkan objek",
+            "Menceritakan sejarah"
+        ],
+        correct: 0
+    },
+
+    {
+        question: "Salah satu ciri utama teks anekdot adalah ...",
+        answers: [
+            "Selalu menggunakan bahasa ilmiah",
+            "Tidak memiliki tokoh",
+            "Mengandung humor dan kritik",
+            "Selalu berdasarkan penelitian"
+        ],
+        correct: 2
+    },
+
+    {
+        question: "Urutan struktur teks anekdot yang benar adalah ...",
+        answers: [
+            "Orientasi - Koda - Krisis - Reaksi - Abstraksi",
+            "Abstraksi - Orientasi - Krisis - Reaksi - Koda",
+            "Krisis - Orientasi - Abstraksi - Koda - Reaksi",
+            "Koda - Krisis - Reaksi - Orientasi - Abstraksi"
+        ],
+        correct: 1
+    },
+
+    {
+        question: "Bagian teks anekdot yang berisi gambaran awal cerita disebut ...",
+        answers: [
+            "Krisis",
+            "Reaksi",
+            "Koda",
+            "Abstraksi"
+        ],
+        correct: 3
+    },
+
+    {
+        question: "Bagian yang memperkenalkan tokoh, tempat, dan situasi dalam anekdot disebut ...",
+        answers: [
+            "Orientasi",
+            "Krisis",
+            "Koda",
+            "Reaksi"
+        ],
+        correct: 0
+    },
+
+    {
+        question: "Bagian anekdot yang berisi munculnya masalah atau kejadian unik disebut ...",
+        answers: [
+            "Abstraksi",
+            "Orientasi",
+            "Krisis",
+            "Koda"
+        ],
+        correct: 2
+    },
+
+    {
+        question: "Bagian yang berisi tanggapan terhadap masalah dalam anekdot disebut ...",
+        answers: [
+            "Reaksi",
+            "Orientasi",
+            "Abstraksi",
+            "Identifikasi"
+        ],
+        correct: 0
+    },
+
+    {
+        question: "Pertanyaan yang tidak membutuhkan jawaban dan digunakan untuk memberikan penekanan disebut ...",
+        answers: [
+            "Kalimat definisi",
+            "Pertanyaan retoris",
+            "Kalimat imperatif",
+            "Kalimat deskripsi"
+        ],
+        correct: 1
+    },
+
+    {
+        question: "Kritik dalam teks anekdot biasanya disampaikan melalui ...",
+        answers: [
+            "Humor atau sindiran",
+            "Data statistik saja",
+            "Bahasa ilmiah",
+            "Petunjuk penggunaan"
+        ],
+        correct: 0
+    },
+
+    {
+        question: "LHO merupakan singkatan dari ...",
+        answers: [
+            "Laporan Harian Observasi",
+            "Laporan Hasil Observasi",
+            "Laporan Hasil Opini",
+            "Lembar Hasil Observasi"
+        ],
+        correct: 1
+    },
+
+    {
+        question: "Teks LHO dibuat berdasarkan ...",
+        answers: [
+            "Imajinasi",
+            "Pendapat pribadi",
+            "Hasil pengamatan",
+            "Cerita fiksi"
+        ],
+        correct: 2
+    },
+
+    {
+        question: "Sifat utama teks LHO adalah ...",
+        answers: [
+            "Subjektif dan emosional",
+            "Lucu dan menyindir",
+            "Faktual dan objektif",
+            "Imajinatif"
+        ],
+        correct: 2
+    },
+
+    {
+        question: "Tujuan teks LHO adalah ...",
+        answers: [
+            "Memberikan informasi berdasarkan hasil pengamatan",
+            "Membuat pembaca tertawa",
+            "Menghibur melalui cerita",
+            "Menceritakan pengalaman pribadi"
+        ],
+        correct: 0
+    },
+
+    {
+        question: "Bagian LHO yang berisi pengenalan atau definisi objek disebut ...",
+        answers: [
+            "Deskripsi manfaat",
+            "Deskripsi bagian",
+            "Pernyataan umum",
+            "Koda"
+        ],
+        correct: 2
+    },
+
+    {
+        question: "Bagian LHO yang menjelaskan ciri-ciri atau bagian objek disebut ...",
+        answers: [
+            "Deskripsi bagian",
+            "Orientasi",
+            "Abstraksi",
+            "Koda"
+        ],
+        correct: 0
+    },
+
+    {
+        question: "Bagian LHO yang menjelaskan fungsi atau kegunaan objek disebut ...",
+        answers: [
+            "Pernyataan umum",
+            "Deskripsi manfaat",
+            "Krisis",
+            "Identifikasi"
+        ],
+        correct: 1
+    },
+
+    {
+        question: "Manakah kalimat yang merupakan fakta?",
+        answers: [
+            "Kucing adalah hewan paling lucu.",
+            "Menurut saya, kucing sangat menggemaskan.",
+            "Kucing merupakan hewan mamalia.",
+            "Kucing adalah hewan terbaik."
+        ],
+        correct: 2
+    },
+
+    {
+        question: "Manakah yang merupakan opini?",
+        answers: [
+            "Kucing memiliki empat kaki.",
+            "Kucing termasuk mamalia.",
+            "Kucing memiliki kumis.",
+            "Menurut saya, kucing adalah hewan paling menggemaskan."
+        ],
+        correct: 3
+    },
+
+    {
+        question: "Kata 'merupakan' dalam teks LHO sering digunakan sebagai ...",
+        answers: [
+            "Kata kerja relasional",
+            "Kata sifat",
+            "Kata seru",
+            "Kata tanya"
+        ],
+        correct: 0
+    },
+
+    {
+        question: "Teks deskripsi bertujuan untuk ...",
+        answers: [
+            "Menggambarkan objek secara rinci",
+            "Memberikan kritik melalui humor",
+            "Melaporkan hasil eksperimen",
+            "Memberikan petunjuk"
+        ],
+        correct: 0
+    },
+
+    {
+        question: "Ciri utama teks deskripsi adalah ...",
+        answers: [
+            "Berisi langkah-langkah",
+            "Menggambarkan objek secara detail",
+            "Selalu mengandung kritik",
+            "Hanya berisi angka"
+        ],
+        correct: 1
+    },
+
+    {
+        question: "Struktur umum teks deskripsi adalah ...",
+        answers: [
+            "Krisis - Reaksi - Koda",
+            "Pernyataan umum - Bagian - Manfaat",
+            "Identifikasi - Deskripsi bagian - Simpulan atau kesan",
+            "Orientasi - Krisis - Reaksi"
+        ],
+        correct: 2
+    },
+
+    {
+        question: "Bagian teks deskripsi yang berisi pengenalan objek disebut ...",
+        answers: [
+            "Identifikasi",
+            "Krisis",
+            "Koda",
+            "Deskripsi manfaat"
+        ],
+        correct: 0
+    },
+
+    {
+        question: "Kata berikut yang termasuk kata sifat adalah ...",
+        answers: [
+            "Berlari",
+            "Meja",
+            "Indah",
+            "Sekolah"
+        ],
+        correct: 2
+    },
+
+    {
+        question: "Kalimat manakah yang menggunakan indra penglihatan?",
+        answers: [
+            "Aroma bunga itu sangat harum.",
+            "Suara musik terdengar keras.",
+            "Dinding rumah itu berwarna putih.",
+            "Kue itu terasa manis."
+        ],
+        correct: 2
+    },
+
+    {
+        question: "Kalimat 'Aroma bunga melati memenuhi halaman' menggunakan indra ...",
+        answers: [
+            "Penglihatan",
+            "Pendengaran",
+            "Penciuman",
+            "Perabaan"
+        ],
+        correct: 2
+    },
+
+    {
+        question: "Kalimat 'Permukaan kain itu terasa lembut' menggunakan indra ...",
+        answers: [
+            "Penglihatan",
+            "Perabaan",
+            "Penciuman",
+            "Pendengaran"
+        ],
+        correct: 1
+    },
+
+    {
+        question: "Kalimat definisi adalah kalimat yang ...",
+        answers: [
+            "Menjelaskan pengertian suatu objek",
+            "Menjelaskan perasaan penulis",
+            "Mengandung pertanyaan",
+            "Berisi perintah"
+        ],
+        correct: 0
+    },
+
+    {
+        question: "Manakah contoh kalimat definisi?",
+        answers: [
+            "Kucing itu sangat lucu.",
+            "Kucing memiliki bulu yang lembut.",
+            "Kucing merupakan hewan mamalia.",
+            "Kucing itu berlari dengan cepat."
+        ],
+        correct: 2
+    },
+
+    {
+        question: "Perbedaan utama LHO dan teks deskripsi adalah ...",
+        answers: [
+            "LHO berdasarkan fakta dan pengamatan, sedangkan deskripsi fokus menggambarkan objek secara rinci",
+            "LHO selalu lucu, sedangkan deskripsi selalu lucu",
+            "LHO selalu fiksi, sedangkan deskripsi selalu fakta",
+            "Tidak ada perbedaan"
+        ],
+        correct: 0
+    },
+
+    {
+        question: "Teks yang berisi cerita lucu sekaligus sindiran terhadap pelayanan publik termasuk ...",
+        answers: [
+            "Teks deskripsi",
+            "Teks LHO",
+            "Teks anekdot",
+            "Teks prosedur"
+        ],
+        correct: 2
+    },
+
+    {
+        question: "Teks yang menjelaskan ciri-ciri bunga mawar berdasarkan pengamatan secara objektif termasuk ...",
+        answers: [
+            "Anekdot",
+            "LHO",
+            "Narasi",
+            "Persuasi"
+        ],
+        correct: 1
+    },
+
+    {
+        question: "Teks yang menggambarkan pantai dengan warna air, suara ombak, pasir, dan suasananya termasuk ...",
+        answers: [
+            "Teks deskripsi",
+            "Teks anekdot",
+            "Teks LHO",
+            "Teks prosedur"
+        ],
+        correct: 0
+    },
+
+    {
+        question: "Pernyataan yang paling tepat adalah ...",
+        answers: [
+            "Anekdot hanya bertujuan membuat pembaca tertawa",
+            "LHO berisi pendapat pribadi penulis",
+            "Deskripsi menggambarkan objek secara rinci agar pembaca seolah-olah dapat merasakannya",
+            "LHO harus selalu mengandung humor"
+        ],
+        correct: 2
+    }
+
+];
+
+</script>
+  <!-- =========================
+     PAGE 3 : HASIL
+========================== -->
+
+<style>
+
+/* =========================
+   RESULT PAGE
+========================= */
+
+.result-page {
+    min-height: 470px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.result-content {
+    width: 100%;
+
+    text-align: center;
+}
+
+
+/* ICON */
+
+.result-icon {
+    width: 100px;
+    height: 100px;
+
+    margin: 0 auto 20px;
+
+    border-radius: 30px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #6bd1f5,
+            #269fd0
+        );
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    font-size: 50px;
+
+    box-shadow:
+        0 12px 25px rgba(30,150,200,0.25);
+}
+
+
+/* TITLE */
+
+.result-title {
+    font-size: 34px;
+
+    color: #1689bd;
+
+    margin-bottom: 8px;
+}
+
+.result-subtitle {
+    color: #63808d;
+
+    margin-bottom: 20px;
+}
+
+
+/* SCORE */
+
+.final-score {
+    font-size: 65px;
+
+    font-weight: bold;
+
+    color: #159ed4;
+
+    margin: 10px 0;
+}
+
+.score-label {
+    color: #63808d;
+
+    margin-bottom: 25px;
+}
+
+
+/* RESULT BOX */
+
+.result-info {
+    display: flex;
+
+    justify-content: center;
+
+    gap: 15px;
+
+    flex-wrap: wrap;
+
+    margin-bottom: 30px;
+}
+
+.result-box {
+    min-width: 120px;
+
+    padding: 15px 20px;
+
+    border-radius: 16px;
+
+    background: #e5f7ff;
+
+    border: 1px solid #c5eafa;
+
+    color: #247da4;
+
+    font-weight: bold;
+}
+
+.result-box span {
+    display: block;
+
+    font-size: 25px;
+
+    margin-top: 5px;
+
+    color: #1689bd;
+}
+
+
+/* RESTART */
+
+.restart-button {
+
+    padding: 15px 35px;
+
+    border: none;
+
+    border-radius: 15px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #35b8ea,
+            #178fc4
+        );
+
+    color: white;
+
+    font-size: 16px;
+
+    font-weight: bold;
+
+    cursor: pointer;
+
+    transition: 0.2s;
+
+    box-shadow:
+        0 8px 18px rgba(25,150,205,0.25);
+}
+
+.restart-button:hover {
+
+    transform: translateY(-3px);
+
+}
+
+
+/* MOBILE */
+
+@media (max-width: 600px) {
+
+    .result-title {
+        font-size: 28px;
+    }
+
+    .final-score {
+        font-size: 55px;
+    }
+
+    .result-box {
+        min-width: 100px;
+    }
+
+    .restart-button {
+        width: 100%;
+    }
+
+}
+
+</style>
+
+
+<!-- =========================
+     PAGE 3
+========================== -->
+
+<section
+    id="resultPage"
+    class="page"
+>
+
+    <div class="result-page">
+
+        <div class="result-content">
+
+
+            <!-- ICON -->
+
+            <div class="result-icon">
+                🏆
+            </div>
+
+
+            <!-- TITLE -->
+
+            <h2 class="result-title">
+                Quiz Selesai!
+            </h2>
+
+
+            <p class="result-subtitle">
+                Hasil latihan PSTS Bahasa Indonesia
+            </p>
+
+
+            <!-- SCORE -->
+
+            <div
+                class="final-score"
+                id="finalScore"
+            >
+                0
+            </div>
+
+            <p class="score-label">
+                Nilai Akhir
+            </p>
+
+
+            <!-- RESULT INFO -->
+
+            <div class="result-info">
+
+                <div class="result-box">
+
+                    Benar
+
+                    <span id="correctResult">
+                        0
+                    </span>
+
+                </div>
+
+
+                <div class="result-box">
+
+                    Salah
+
+                    <span id="wrongResult">
+                        0
+                    </span>
+
+                </div>
+
+
+                <div class="result-box">
+
+                    Total
+
+                    <span>
+                        35
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <!-- RESTART -->
+
+            <button
+                class="restart-button"
+                onclick="restartQuiz()"
+            >
+                🔄 Ulangi Quiz
+            </button>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     JAVASCRIPT QUIZ
+========================== -->
+
+<script>
+
+
+/* =========================
+   VARIABLE
+========================= */
+
+let currentQuestion = 0;
+
+let score = 0;
+
+let selectedAnswer = null;
+
+
+/* =========================
+   ELEMENT
+========================= */
+
+const lobbyPage =
+    document.getElementById("lobbyPage");
+
+const quizPage =
+    document.getElementById("quizPage");
+
+const resultPage =
+    document.getElementById("resultPage");
+
+const questionNumber =
+    document.getElementById("questionNumber");
+
+const questionText =
+    document.getElementById("questionText");
+
+const answersContainer =
+    document.getElementById("answers");
+
+const nextButton =
+    document.getElementById("nextButton");
+
+const progressBar =
+    document.getElementById("progressBar");
+
+const currentScore =
+    document.getElementById("currentScore");
+
+
+/* =========================
+   START QUIZ
+========================= */
+
+function startQuiz() {
+
+    currentQuestion = 0;
+
+    score = 0;
+
+    selectedAnswer = null;
+
+
+    lobbyPage.classList.remove("active");
+
+    resultPage.classList.remove("active");
+
+    quizPage.classList.add("active");
+
+
+    showQuestion();
+
+}
+
+
+/* =========================
+   SHOW QUESTION
+========================= */
+
+function showQuestion() {
+
+    selectedAnswer = null;
+
+
+    const question =
+        questions[currentQuestion];
+
+
+    /* NUMBER */
+
+    questionNumber.textContent =
+        "Soal " +
+        (currentQuestion + 1) +
+        " / " +
+        questions.length;
+
+
+    /* SCORE */
+
+    currentScore.textContent =
+        score;
+
+
+    /* QUESTION */
+
+    questionText.textContent =
+        question.question;
+
+
+    /* PROGRESS */
+
+    const progress =
+        ((currentQuestion + 1) /
+        questions.length) * 100;
+
+    progressBar.style.width =
+        progress + "%";
+
+
+    /* CLEAR ANSWERS */
+
+    answersContainer.innerHTML = "";
+
+
+    /* CREATE ANSWERS */
+
+    question.answers.forEach(
+        function(answer, index) {
+
+
+            const button =
+                document.createElement("button");
+
+
+            button.className =
+                "answer-button";
+
+
+            button.textContent =
+                String.fromCharCode(65 + index)
+                + ". "
+                + answer;
+
+
+            button.onclick =
+                function() {
+
+                    selectAnswer(
+                        index,
+                        button
+                    );
+
+                };
+
+
+            answersContainer.appendChild(
+                button
+            );
+
+        }
+    );
+
+
+    /* DISABLE NEXT */
+
+    nextButton.disabled = true;
+
+}
+
+
+/* =========================
+   SELECT ANSWER
+========================= */
+
+function selectAnswer(index, button) {
+
+    selectedAnswer = index;
+
+
+    /* REMOVE SELECTED */
+
+    const allButtons =
+        document.querySelectorAll(
+            ".answer-button"
+        );
+
+
+    allButtons.forEach(
+        function(btn) {
+
+            btn.classList.remove(
+                "selected"
+            );
+
+        }
+    );
+
+
+    /* SELECT CURRENT */
+
+    button.classList.add(
+        "selected"
+    );
+
+
+    /* ENABLE NEXT */
+
+    nextButton.disabled = false;
+
+}
+
+
+/* =========================
+   NEXT QUESTION
+========================= */
+
+nextButton.onclick =
+function() {
+
+
+    /* CEK JAWABAN */
+
+    if (
+        selectedAnswer ===
+        questions[currentQuestion].correct
+    ) {
+
+        score++;
+
+    }
+
+
+    currentQuestion++;
+
+
+    /* MASIH ADA SOAL */
+
+    if (
+        currentQuestion <
+        questions.length
+    ) {
+
+        showQuestion();
+
+    }
+
+    /* SELESAI */
+
+    else {
+
+        showResult();
+
+    }
+
+};
+
+
+/* =========================
+   SHOW RESULT
+========================= */
+
+function showResult() {
+
+
+    /* HIDE QUIZ */
+
+    quizPage.classList.remove(
+        "active"
+    );
+
+
+    /* SHOW RESULT */
+
+    resultPage.classList.add(
+        "active"
+    );
+
+
+    /* CALCULATE */
+
+    const total =
+        questions.length;
+
+
+    const percentage =
+        Math.round(
+            (score / total) * 100
+        );
+
+
+    const wrong =
+        total - score;
+
+
+    /* DISPLAY */
+
+    document.getElementById(
+        "finalScore"
+    ).textContent =
+        percentage;
+
+
+    document.getElementById(
+        "correctResult"
+    ).textContent =
+        score;
+
+
+    document.getElementById(
+        "wrongResult"
+    ).textContent =
+        wrong;
+
+}
+
+
+/* =========================
+   RESTART
+========================= */
+
+function restartQuiz() {
+
+
+    /* RESET */
+
+    currentQuestion = 0;
+
+    score = 0;
+
+    selectedAnswer = null;
+
+
+    /* HIDE RESULT */
+
+    resultPage.classList.remove(
+        "active"
+    );
+
+
+    /* SHOW LOBBY */
+
+    lobbyPage.classList.add(
+        "active"
+    );
+
+}
+
+
+</script>
+
+
+<!-- =========================
+     CLOSE HTML
+========================== -->
+
+</div>
+
+</body>
+
+</html>
